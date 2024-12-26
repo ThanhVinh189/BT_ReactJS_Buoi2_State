@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Đặt lại CSS mặc định */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+  line-height: 1.6;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  opacity: 0.7;
+}
+
+header h1 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.model-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  z-index: 1;
+}
+
+.model {
+  position: relative;
+  width: 16rem;
+  height: 90%;
+  margin: 1rem 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  border-radius: 5px;
+}
+
+.models-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 700px;
+  margin: 10px;
+}
+
+.model img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* Đảm bảo hình ảnh model bao phủ toàn bộ */
+}
+
+.model .glasses {
+  position: absolute;
+  top: -17%; /* Điều chỉnh vị trí để phù hợp hơn với khuôn mặt của model */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 58%; /* Thu nhỏ kích thước của kính */
+  object-fit: contain; /* Đảm bảo kính không bị cắt bớt */
+}
+
+.model-info {
+  position: absolute;
+  bottom: 0px;
+  padding: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: left;
+  width: 100%;
+  background-color: tomato;
+  opacity: 0.6;
+}
+
+.model-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: blue;
+}
+
+.model-desc {
+  font-size: 0.875rem;
+  color: white;
+}
+
+.glasses-container {
+  padding: 0.7rem;
+  border: 2px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.9); /* Nền trắng với độ mờ */
+  width: 60%;
+  margin: 0.7rem auto;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.glasses-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  z-index: 1;
+}
+
+.glasses-item {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center;
+  border: 2px solid #ccc;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.glasses-item:hover {
+  transform: scale(1.05);
+}
+
+.glasses-item img {
+  width: 5rem;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.glasses-item p {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #4a5568;
+  margin-top: 0.1rem;
+}
